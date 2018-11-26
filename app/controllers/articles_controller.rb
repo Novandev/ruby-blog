@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  # Crestes the routes for a new article
-  #
+  # Creates the routes for a new article
+
 
   def index
     @articles = Article.all
@@ -15,6 +15,11 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    render plain: params[:article].inspect
+    @article = Article.new(params.require(:article).permit(:title, :text))
+
+    @article.save
+    redirect_to @article
   end
+
+
 end
