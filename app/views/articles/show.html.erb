@@ -14,3 +14,40 @@
 
 <%# This is the link abck to the ALL articles index path %>
 <%= link_to 'Back', articles_path %>
+
+<%# Section to show the comments %>
+
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %> <%# iterate over all the comments and for each one print the commenter and the body %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<%# END section to show the comments %>
+
+
+
+<%# Comment form section %>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
