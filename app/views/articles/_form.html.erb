@@ -1,10 +1,4 @@
-
-<h1>Edit article</h1>
-
-
-<%# Form section that based on the id  will update the text and or title in the model %>
-<%= form_with(model: @article, local: true) do |form| %>
-
+<%= form_with model: @article, local: true do |form| %>
 
 
   <%#  ERROR HANDLING SECTION %>
@@ -44,6 +38,3 @@
   </p>
 
 <% end %>
-
-<%# Back button link to all of the articles %>
-<%= link_to 'Back', articles_path %>

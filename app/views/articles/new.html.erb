@@ -1,50 +1,11 @@
 <h1>New Article</h1>
 
-
+<%= render 'form' %>    <%# partials for the form that is in the file _form.html.erb %>
 
 <%# Rails generally has a single post route per crudable resource so it knows a post request is coming to ALL articles %>
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
 
 
-  <%#  ERROR HANDLING SECTION %>
-
-  <% if @article.errors.any? %> <%# this checks to see if there are any errors present %>
-    <div id="error_explanation">
-      <h2>
-        <%# this gets the number of erros and tels the user how many of them are preventing from saving %>
-        <%= pluralize(@article.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <%# This will print the full error message that appears for each one %>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%# Input section for articles %>
-
-  <%# Title input section %>
-  <p>
-    <%= form.label :title %><br>  <%# as in normal html the label must match the id its set to in this case the title %>
-    <%= form.text_field :title %> <%# the actual input feild that the user will use %>
-  </p>
-
-  <%# Text Input section %>
-  <p>
-    <%= form.label :text %><br> <%# as in normal html the label must match the id its set to in this case text %>
-    <%= form.text_area :text %>
-  </p>
-
-  <p>
-    <%= form.submit %>  <%# This senders as a submit button %>
-  </p>
-
-<% end %>
-
-<%# this link is the link back to the all articles path %>
+<%# this link is the link back to the all articles %>
 <%= link_to 'Back', articles_path %>
 
 
