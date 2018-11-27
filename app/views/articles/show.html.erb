@@ -1,12 +1,14 @@
-
+<%# the show resource for a single article %>
 <p>
   <strong>Title:</strong>
-  <%= @article.title %>
+  <%= @article.title %> <%# this grabs a single artiocels title and displayes it, it is based on id %>
 </p>
 
 <p>
   <strong>Text:</strong>
-  <%= @article.text %>
+  <%= @article.text %>  <%# This grabs a single articles text and displays it %>
 </p>
 
+
+<%# This is the link abck to the ALL articles index path %>
 <%= link_to 'Back', articles_path %>

@@ -1,14 +1,14 @@
 class ArticlesController < ApplicationController
   # Creates the routes for a new article
 
-
+  #  this is the index part that
   def index
     @articles = Article.all  # Return all fo the articles
   end
 
-
+  #  the crudable show route
   def show
-      @article = Article.find(params[:id])  # this goes into active record and finds a partoculat post by its ID
+      @article = Article.find(params[:id])  # this goes into active record and finds a particular post by its ID
   end
 
   def new # this just registers the new route as a get route
@@ -24,5 +24,9 @@ class ArticlesController < ApplicationController
     end
   end
 
+  private
+    def article_params
+      params.require(:article).permit(:title, :text)
+    end
 
 end
