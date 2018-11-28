@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
 
 
-
-
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'articles#index'   # This sets the base index page to articles index
